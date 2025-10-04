@@ -1,0 +1,254 @@
+/* =======================
+   Variables
+======================= */
+:root {
+  --beige: #ffffff;
+  --coffee: #818181;
+  --coffee-dark: #000000;
+  --ink: rgba(81, 60, 45, 0.9);
+}
+
+/* =======================
+   Base Styles
+======================= */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Tajawal', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--coffee-dark);
+  background-color: var(--beige);
+  font-size: 18px;
+}
+
+.title-en {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* =======================
+   Tabs
+======================= */
+.tabs-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  font-size: 1rem;
+  border-radius: 12px;
+  background-color: #e5e5e5;
+  color: var(--coffee-dark);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+.tab img {
+  width: 24px;
+  height: 24px;
+}
+
+.tab-active {
+  background-color: var(--coffee);
+  color: #fff;
+}
+
+.tab:hover:not(.tab-active) {
+  background-color: #d6d6d6;
+}
+
+/* =======================
+   Menu Grid
+======================= */
+#menuGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* =======================
+   Menu Item Card
+======================= */
+.menu-item-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(3px);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.menu-item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(81, 60, 45, 0.2);
+}
+/* Container for animation */
+.nature-animation {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Leaf styles */
+.leaf {
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  background-image: url('photos/leaf.png'); /* replace with your leaf PNG */
+  background-size: cover;
+  opacity: 0.6;
+  animation: floatNature 12s linear infinite;
+}
+.port{
+
+  position: absolute;
+  top: -50px;
+  width: 40px;
+  height: 40px;
+  background-image: url('photos/portafilter.png'); /* replace with your leaf PNG */
+  background-size: cover;
+  opacity: 0.6;
+  animation: floatNature 17s linear infinite;
+}
+
+
+
+
+/* Flower styles */
+.flower {
+  position: absolute;
+  top: -50px;
+  width: 30px;
+  height: 30px;
+  background-image: url('photos/coffee-beans.png'); /* replace with your flower PNG */
+  background-size: cover;
+  opacity: 0.8;
+  animation: floatNature 14s linear infinite;
+}
+
+/* Floating animation */
+@keyframes floatNature {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0.5; }
+  50% { transform: translateY(50vh) rotate(180deg); opacity: 0.7; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+
+/* =======================
+   Image Container
+======================= */
+.img-container {
+  width: 100%;
+  padding-top: 75%; /* 4:3 aspect ratio */
+  position: relative;
+  overflow: hidden;
+}
+
+.img-container img.img-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =======================
+   Item Name & Price
+======================= */
+.item-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--coffee-dark);
+  text-align: center;
+  margin: 8px 4px 4px;
+  word-break: break-word;
+}
+
+.price-pill {
+  font-size: 0.9rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-align: center;
+  background-color: #fff;
+  border: 1px solid rgba(107, 79, 58, 0.2);
+  margin: 6px 0;
+  transition: all 0.2s ease;
+}
+
+.menu-item-card:hover .price-pill {
+  background-color: var(--coffee);
+  color: #fff;
+}
+
+/* =======================
+   Responsive Styles
+======================= */
+@media screen and (max-width: 1024px) {
+  #menuGrid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .tab {
+    font-size: 0.95rem;
+    padding: 8px 12px;
+  }
+  .tab img {
+    width: 20px;
+    height: 20px;
+  }
+  #menuGrid {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+  .item-name {
+    font-size: 0.95rem;
+  }
+  .price-pill {
+    font-size: 0.85rem;
+    padding: 3px 10px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .tab {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+  }
+  .tab img {
+    width: 18px;
+    height: 18px;
+  }
+  #menuGrid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 8px;
+  }
+  .item-name {
+    font-size: 0.8rem;
+  }
+  .price-pill {
+    font-size: 0.75rem;
+    padding: 2px 6px;
+  }
+}

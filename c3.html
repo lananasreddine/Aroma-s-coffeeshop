@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aroma — Coffee</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="c3.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Tajawal:wght@400;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body class="min-h-screen">
+  <header class="sticky top-0 z-30 backdrop-blur bg-white
+ border-b border-[color:rgba(107,79,58,0.15)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex items-center justify-between py-3">
+        <a href="#top" class="flex items-center gap-3">
+          <img src="White and Brown Simple Coffee Shop Logo (1).svg" alt="aroma Coffee Shop Logo" class="h-20 w-auto">
+          <div class="title-en text-2xl text-[var(--coffee-dark)]"></div>
+        </a>
+        <nav class="hidden md:flex items-center gap-1">
+          <a href="#menu" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            Menu
+          </a>
+          <a href="#gallery" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            Photos
+          </a>
+          <a href="#contact" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Contact
+          </a>
+        </nav>
+        <button id="mobileMenuBtn" class="btn md:hidden p-2 rounded-full hover:bg-[color:rgba(107,79,58,0.12)]" aria-label="Open menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" class="text-[var(--coffee-dark)]">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+      <div id="mobileLinks" class="hidden md:hidden pb-3">
+        <div class="flex flex-col gap-1">
+          <a href="#menu" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            Menu
+          </a>
+          <a href="#gallery" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-image"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            Photos
+          </a>
+          <a href="#contact" class="px-3 py-2 rounded-md hover:bg-[color:rgba(107,79,58,0.12)] transition flex items-center gap-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            Contact
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+<section id="top" class="relative text-[var(--coffee-dark)] py-10 sm:py-16 flex items-center justify-center bg-white overflow-hidden">
+  <!-- Animated leaves & flowers -->
+<div class="nature-animation">
+  <!-- Leaves -->
+  <div class="leaf" style="left: 5%; animation-delay: 0s;"></div>
+  <div class="leaf" style="left: 30%; animation-delay: 4s;"></div>
+  <div class="leaf" style="left: 55%; animation-delay: 2s;"></div>
+  <div class="leaf" style="left: 80%; animation-delay: 2.5s;"></div>
+
+  <!-- Ports -->
+  <div class="port" style="left: 55%; animation-delay: 3s;"></div>
+  <div class="port" style="left: 30%; animation-delay: 0s;"></div>
+
+  <!-- Flowers -->
+  <div class="flower" style="left: 15%; animation-delay: 1s;"></div>
+  <div class="flower" style="left: 45%; animation-delay: 3s;"></div>
+  <div class="flower" style="left: 70%; animation-delay: 2s;"></div>
+</div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 text-center">
+    <h1 class="title-en text-4xl sm:text-6xl font-bold leading-tight">Aroma</h1>
+    <p class="mt-3 text-lg sm:text-xl italic">Start your day the Aroma way.</p>
+    <div class="mt-6 flex flex-wrap justify-center gap-3">
+      <a href="#contact" class="btn inline-flex items-center gap-2 bg-[var(--coffee)] text-white px-6 py-3 rounded-full shadow-lg hover:bg-[color:rgb(77,56,42)]">
+        Find Us
+      </a>
+      <a href="#menu" class="btn inline-flex items-center gap-2 bg-white text-[var(--coffee)] px-6 py-3 rounded-full hover:bg-[color:rgba(255,255,255,0.8)] border border-[var(--coffee)]">
+        View Menu
+      </a>
+    </div>
+  </div>
+</section>
+
+
+  <section id="menu" class="py-10 sm:py-14">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+
+
+
+      <div class="flex items-end justify-between gap-4 flex-wrap">
+        <div class="flex-1 min-w-[260px]">
+          <h2 class="title-en text-3xl sm:text-4xl">Menu</h2>
+          <p class="mt-1 text-[var(--ink)]">Pick a section to view items.<br>
+      اضغط على أي قسم لعرض العناصر، أو استخدم شريط البحث</p>
+        </div>
+        <form id="searchForm" class="w-full sm:w-auto flex-1 min-w-[260px] max-w-md" onsubmit="event.preventDefault();">
+          <label class="sr-only" for="searchInput">Search menu</label>
+          <div class="flex items-center gap-2 bg-white/80 border border-[color:rgba(107,79,58,0.2)] rounded-full px-4 py-2 shadow-sm">
+            <svg width="18" height="18" viewBox="0 0 24 24" class="text-[var(--coffee-dark)]"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5" fill="none"></circle><path d="M20 20l-3.2-3.2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path></svg>
+            <input id="searchInput" type="text" placeholder="Search items..." class="w-full bg-transparent outline-none placeholder:text-[color:rgba(81,60,45,0.6)]" />
+            <button id="clearSearchBtn" type="button" class="hidden btn px-3 py-1 rounded-full bg-[var(--coffee)] text-white">Clear</button>
+          </div>
+        </form>
+      </div>
+<div class="mt-6 flex flex-wrap gap-4">
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="hot">
+    <img src="photos/coffee.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Hot Drinks">
+    Hot Drinks
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="cold">
+    <img src="photos/coffee-float.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Cold Drinks">
+    Cold Drinks
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="saj">
+    <img src="photos/pita-bread.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Saj">
+    Saj (صاج)
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="cocktail">
+    <img src="photos/cocktail.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Cocktails">
+    Cocktails
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="shisha">
+    <img src="photos/hookah.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Shisha">
+    Shisha
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="dessert">
+    <img src="photos/sweets.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Desserts">
+    Desserts
+  </button>
+
+  <button class="tab btn tab-inactive flex items-center gap-4 text-2xl sm:text-3xl px-8 py-5" data-tab="snacks">
+    <img src="photos/snack.png" class="w-12 h-12 sm:w-14 sm:h-14" alt="Snacks">
+    Snacks & Drinks
+  </button>
+</div>
+
+
+<div id="menuGrid" class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+</div>
+
+
+     
+    </div>
+  </section>
+
+ 
+
+
+ <section id="gallery" class="py-8 sm:py-12">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-6">
+      <h2 class="title-en text-3xl sm:text-4xl">Aroma in Frames</h2>
+      <p class="italic text-[color:rgba(81,60,45,0.8)] mt-1">Savor every sip, cherish every moment.</p>
+    </div>
+
+    <div class="relative rounded-2xl shadow-soft border border-[color:rgba(107,79,58,0.15)] max-w-3xl mx-auto overflow-hidden">
+      <div id="sliderTrack" class="flex transition-transform duration-700 ease-in-out">
+        <div class="w-full flex-shrink-0">
+          <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1200&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Espresso shot">
+        </div>
+        <div class="w-full flex-shrink-0">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=1200&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Cozy seating">
+        </div>
+        <div class="w-full flex-shrink-0">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?q=80&w=1200&auto=format&fit=crop" class="w-full h-64 object-cover" alt="Counter">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="py-10 sm:py-14">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <h2 class="title-en text-3xl sm:text-4xl">Get in Touch</h2>
+
+    <div class="mt-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Hours -->
+      <div class="card rounded-2xl p-5 border border-[color:rgba(107,79,58,0.12)]">
+        <div class="font-semibold">Opening Hours</div>
+        <div class="mt-2 text-[var(--ink)]">Every day • 7:00 AM – 6:00 PM</div>
+      </div>
+
+      <!-- Address -->
+      <div class="card rounded-2xl p-5 border border-[color:rgba(107,79,58,0.12)]">
+        <div class="font-semibold">Location</div>
+        <div class="mt-2 text-[var(--ink)]">Sfeir, Beirut – Lebanon</div>
+      </div>
+
+      <!-- Email -->
+      <div class="card rounded-2xl p-5 border border-[color:rgba(107,79,58,0.12)]">
+        <div class="font-semibold">Email</div>
+        <div class="mt-2 text-[var(--ink)]">
+          <a href="mailto:hello@aromacafe.com" class="hover:underline">hello@aromacafe.com</a>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="card rounded-2xl p-5 border border-[color:rgba(107,79,58,0.12)]">
+        <div class="font-semibold">Phone</div>
+        <div class="mt-2 text-[var(--ink)]">
+          <a href="tel:+96170123456" class="hover:underline">+961 70 123 456</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="pt-4 pb-8">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="card card-find rounded-2xl p-4 flex flex-col items-center gap-3 shadow-soft">
+      
+      <!-- Title & Info -->
+      <div class="flex items-center gap-3 w-full sm:w-auto">
+        <span class="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[var(--coffee)] text-white shadow">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="9" r="2.5" stroke="currentColor" stroke-width="1.6"/>
+          </svg>
+        </span>
+        <div class="flex-1">
+          <div class="font-semibold">Find Us</div>
+          <div class="text-[color:rgba(81,60,45,0.8)] text-sm">Sfeir, Beirut – Open daily 7:00–18:00</div>
+        </div>
+      </div>
+
+     <div class="w-full h-32 rounded-lg overflow-hidden">
+ <div class="w-full h-64 sm:h-80 md:h-96 rounded-lg overflow-hidden">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d892.8008204211537!2d35.520897949533236!3d33.853557814255126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f1700252f4201%3A0x8ae25fc45f59f80!2sPastalata!5e1!3m2!1sen!2slb!4v1759480948209!5m2!1sen!2slb"
+    class="w-full h-full"
+    style="border:0;"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade">
+  </iframe>
+</div>
+
+</div>
+
+<div class="mt-2 text-center">
+  <a href="https://maps.app.goo.gl/6tfyHF3davqhk33F6" target="_blank" rel="noopener noreferrer" 
+     class="text-[var(--coffee-dark)] hover:underline text-sm">
+    Open in Google Maps app
+  </a>
+</div>
+
+      
+    </div>
+  </div>
+</section>
+<footer class="py-10 bg-[var(--beige)] text-[var(--coffee-dark)]">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+
+      <!-- Logo / Name -->
+      <div>
+        <div class="title-en text-2xl font-semibold">Aroma Coffee Shop</div>
+        <div class="text-sm text-[var(--ink)]/70 mt-1">© <span id="year"></span></div>
+      </div>
+
+      <!-- Links and Social -->
+      <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-3 text-sm flex-wrap">
+        <!-- Menu Links -->
+        <div class="flex flex-wrap gap-3">
+          <a href="#menu" class="hover:underline">Menu</a>
+          <a href="#gallery" class="hover:underline">Photos</a>
+          <a href="#contact" class="hover:underline">Contact</a>
+        </div>
+
+        <!-- Divider (visible on larger screens) -->
+        <span class="hidden sm:inline-block mx-2 text-[var(--ink)]/40">|</span>
+
+        <!-- Social Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+             class="btn px-3 py-1.5 rounded-full bg-[var(--coffee)] text-white border border-[color:rgba(107,79,58,0.2)] hover:bg-[var(--coffee-dark)] transition-colors">Instagram</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+             class="btn px-3 py-1.5 rounded-full bg-[var(--coffee)] text-white border border-[color:rgba(107,79,58,0.2)] hover:bg-[var(--coffee-dark)] transition-colors">Facebook</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer"
+             class="btn px-3 py-1.5 rounded-full bg-[var(--coffee)] text-white border border-[color:rgba(107,79,58,0.2)] hover:bg-[var(--coffee-dark)] transition-colors">TikTok</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="menu.js"></script>
+<script type="module" src="quotes.js"></script>
+<script type="module" src="render.js"></script>
+<script type="module" src="main.js"></script>
+
+</body>
+</html>
