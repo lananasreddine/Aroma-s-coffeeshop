@@ -7,6 +7,8 @@ const searchInput = document.getElementById('searchInput');
 const clearSearchBtn = document.getElementById('clearSearchBtn');
 
 let activeTab = null;
+let searchTimeout = null; // for debouncing
+let lastQuery = ''; // track last search to prevent repeated scrolling
 
 // Price template
 const priceTemplate = (val = '') => {
@@ -64,13 +66,13 @@ export function renderMenu() {
 
     menuGrid.appendChild(card);
 
-    // Scroll the first item into view
-    if (index === 0) {
+    // Scroll the first item only if query changed or no previous query
+    if (index === 0 && (query !== lastQuery || !activeTab)) {
       card.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   });
 
-  // Show/hide clear button
+  lastQuery = query; // update lastQuery
   if (clearSearchBtn) clearSearchBtn.classList.toggle('hidden', !query);
 }
 
@@ -85,6 +87,7 @@ export function renderTabs() {
 
 // Initialize tabs and search
 export function initTabs() {
+  // Tab click
   tabs.forEach(btn => {
     btn.addEventListener('click', () => {
       activeTab = activeTab === btn.dataset.tab ? null : btn.dataset.tab;
@@ -93,11 +96,23 @@ export function initTabs() {
     });
   });
 
-  if (searchInput) searchInput.addEventListener('input', renderMenu);
-  if (clearSearchBtn) clearSearchBtn.addEventListener('click', () => {
-    searchInput.value = '';
-    renderMenu();
-  });
+  // Debounced search input
+  if (searchInput) {
+    searchInput.addEventListener('input', () => {
+      if (searchTimeout) clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        renderMenu();
+      }, 300); // adjust delay if needed
+    });
+  }
+
+  // Clear button
+  if (clearSearchBtn) {
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      renderMenu();
+    });
+  }
 }
 
 // Optional slider (for your quotes or hero section)
