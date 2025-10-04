@@ -7,7 +7,6 @@ const searchInput = document.getElementById('searchInput');
 const clearSearchBtn = document.getElementById('clearSearchBtn');
 
 let activeTab = null;
-let searchTimeout = null; // for debouncing
 let lastQuery = ''; // track last search to prevent repeated scrolling
 
 // Price template
@@ -96,13 +95,12 @@ export function initTabs() {
     });
   });
 
-  // Debounced search input
+  // Search: trigger render only on Enter key
   if (searchInput) {
-    searchInput.addEventListener('input', () => {
-      if (searchTimeout) clearTimeout(searchTimeout);
-      searchTimeout = setTimeout(() => {
+    searchInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
         renderMenu();
-      }, 300); // adjust delay if needed
+      }
     });
   }
 
