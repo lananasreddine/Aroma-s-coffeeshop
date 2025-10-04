@@ -65,12 +65,12 @@ export function renderMenu() {
 
     menuGrid.appendChild(card);
 
-    // Scroll the first item in every render
+    // Scroll first item inside container (works for desktop & mobile)
     if (index === 0) {
-      card.scrollIntoView({
-        behavior: 'smooth', // smooth scrolling
-        block: 'start',     // align to top of container
-        inline: 'nearest'
+      // Modern mobile + desktop compatible smooth scroll
+      menuGrid.scrollTo({
+        top: card.offsetTop - menuGrid.offsetTop,
+        behavior: 'smooth'
       });
     }
   });
@@ -134,4 +134,3 @@ if (track) {
     track.style.transform = `translateX(-${index * 100}%)`;
   }, 4000);
 }
-
