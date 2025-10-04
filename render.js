@@ -44,7 +44,7 @@ export function renderMenu() {
   }
 
   // Create cards for each item
-  items.forEach(item => {
+  items.forEach((item, index) => {
     const card = document.createElement('div');
     card.className = 'menu-item-card p-3 sm:p-4 border border-[color:rgba(107,79,58,0.12)] rounded-2xl flex flex-col gap-2';
 
@@ -63,6 +63,11 @@ export function renderMenu() {
     `;
 
     menuGrid.appendChild(card);
+
+    // Scroll the first item into view
+    if (index === 0) {
+      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   });
 
   // Show/hide clear button
