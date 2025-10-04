@@ -5,6 +5,7 @@ const menuGrid = document.getElementById('menuGrid');
 const tabs = document.querySelectorAll('.tab');
 const searchInput = document.getElementById('searchInput');
 const clearSearchBtn = document.getElementById('clearSearchBtn');
+const searchBtn = document.getElementById('searchBtn'); // optional button for mobile
 
 let activeTab = null;
 let lastQuery = ''; // track last search to prevent repeated scrolling
@@ -65,9 +66,10 @@ export function renderMenu() {
 
     menuGrid.appendChild(card);
 
-    // Scroll the first item only if query changed or no previous query
-    if (index === 0 && (query !== lastQuery || !activeTab)) {
-      card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // Scroll logic: 
+    // Scroll first item if either a search query changed OR a tab is active
+    if (index === 0 && (query !== lastQuery || activeTab)) {
+      menuGrid.scrollTop = card.offsetTop;
     }
   });
 
@@ -95,12 +97,19 @@ export function initTabs() {
     });
   });
 
-  // Search: trigger render only on Enter key
+  // Search: Enter/Go key
   if (searchInput) {
-    searchInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') {
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === 'Go') {
         renderMenu();
       }
+    });
+  }
+
+  // Optional mobile search button
+  if (searchBtn) {
+    searchBtn.addEventListener('click', () => {
+      renderMenu();
     });
   }
 
