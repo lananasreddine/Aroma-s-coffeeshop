@@ -5,10 +5,9 @@ const menuGrid = document.getElementById('menuGrid');
 const tabs = document.querySelectorAll('.tab');
 const searchInput = document.getElementById('searchInput');
 const clearSearchBtn = document.getElementById('clearSearchBtn');
-const searchBtn = document.getElementById('searchBtn'); // optional button for mobile
+const searchBtn = document.getElementById('searchBtn'); // optional mobile button
 
 let activeTab = null;
-let lastQuery = ''; // track last search to prevent repeated scrolling
 
 // Price template
 const priceTemplate = (val = '') => {
@@ -66,14 +65,17 @@ export function renderMenu() {
 
     menuGrid.appendChild(card);
 
-    // Scroll logic: 
-    // Scroll first item if either a search query changed OR a tab is active
-    if (index === 0 && (query !== lastQuery || activeTab)) {
-      menuGrid.scrollTop = card.offsetTop;
+    // Scroll the first item in every render
+    if (index === 0) {
+      card.scrollIntoView({
+        behavior: 'smooth', // smooth scrolling
+        block: 'start',     // align to top of container
+        inline: 'nearest'
+      });
     }
   });
 
-  lastQuery = query; // update lastQuery
+  // Show/hide clear button
   if (clearSearchBtn) clearSearchBtn.classList.toggle('hidden', !query);
 }
 
@@ -132,3 +134,4 @@ if (track) {
     track.style.transform = `translateX(-${index * 100}%)`;
   }, 4000);
 }
+
