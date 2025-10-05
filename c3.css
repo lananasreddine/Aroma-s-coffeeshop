@@ -157,7 +157,7 @@ html, body {
 ======================= */
 .img-container {
   width: 100%;
-  padding-top: 75%; /* 4:3 aspect ratio */
+    height: 140px; /* 4:3 aspect ratio */
   position: relative;
   overflow: hidden;
 }
