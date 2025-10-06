@@ -22,6 +22,43 @@ export const MENU = {
 ]
 ,
 
+cold: [
+  // Milkshakes
+  { id: 'c1', name: 'Oreo / أوريو', price: '$4.50', description: 'Creamy Oreo shake with a swirl of whipped cream', category: 'Milkshake' },
+  { id: 'c2', name: 'Lotus / لوتس', price: '$4.50', description: 'Sweet Lotus shake with a caramel touch', category: 'Milkshake' },
+  { id: 'c3', name: 'Chocolate / شوكولاتة', price: '$4.50', description: 'Rich chocolate shake topped with chocolate chips', category: 'Milkshake' },
+  { id: 'c4', name: 'Vanilla / فانيلا', price: '$4.00', description: 'Classic vanilla shake with a creamy finish', category: 'Milkshake' },
+  { id: 'c5', name: 'Strawberry / فراولة', price: '$4.50', description: 'Fresh strawberry shake crowned with whipped cream', category: 'Milkshake' },
+  { id: 'c6', name: 'Pistachio / فستق', price: '$5.00', description: 'Nutty pistachio shake with a smooth texture', category: 'Milkshake' },
+
+  // // Detox
+  // { id: 'd1', name: 'Charcoal Lemonade / ليمونادة فحمية', price: '$4.50', description: 'Zesty lemonade with a charcoal twist', category: 'Detox' },
+  // { id: 'd2', name: 'Pitaya Beauty Water / ماء بيتايا', price: '$5.00', description: 'Vibrant pitaya drink, refreshing and light', category: 'Detox' },
+  // { id: 'd3', name: 'Golden Glow / توهج ذهبي', price: '$5.00', description: 'Warm turmeric and spice drink for a golden boost', category: 'Detox' },
+
+  // Smoothies
+  { id: 's1', name: 'Mango / مانجو', price: '$4.00', description: 'Tropical mango smoothie with a refreshing zing', category: 'Smoothie' },
+  { id: 's2', name: 'Strawberry / فراولة', price: '$4.00', description: 'Bright strawberry smoothie with fruity sweetness', category: 'Smoothie' },
+  { id: 's3', name: 'Mixed Berries / توت مشكل', price: '$4.50', description: 'A tangy mix of berries in a smooth blend', category: 'Smoothie' },
+  { id: 's4', name: 'Tropical Fruits / فواكه استوائية', price: '$4.50', description: 'Exotic tropical fruit medley in a refreshing smoothie', category: 'Smoothie' },
+
+  // Coolers
+  { id: 'cl1', name: 'Ice Tea Peach / شاي مثلج خوخ', price: '$3.50', description: 'Chilled peach tea with a crisp finish', category: 'Cooler' },
+  { id: 'cl2', name: 'Passion Fruit / فاكهة العاطفة', price: '$3.50', description: 'Fruity passion cooler with tropical flair', category: 'Cooler' },
+  { id: 'cl3', name: 'Mojito / موهيتو', price: '$4.00', description: 'Classic mint and lime sparkling refreshment', category: 'Cooler' },
+  { id: 'cl4', name: 'Flavored Mojito / موهيتو منكه', price: '$4.50', description: 'Mojito with a fruity twist and sparkling water', category: 'Cooler' },
+
+  // Iced Coffee & Latte
+  { id: 'ic1', name: 'Iced Americano / أيس أمريكانو', price: '$3.50', description: 'Chilled espresso over ice', category: 'Iced Coffee' },
+  { id: 'ic2', name: 'Iced Latte / أيس لاتيه', price: '$4.00', description: 'Smooth espresso with cold milk and ice', category: 'Iced Coffee' },
+  { id: 'ic3', name: 'Flavored Iced Latte / أيس لاتيه منكه', price: '$4.50', description: 'Iced latte with a hint of your favorite flavor', category: 'Iced Coffee' },
+  { id: 'ic4', name: 'Iced Mocha / أيس موكا', price: '$4.50', description: 'Chocolatey iced coffee with creamy milk', category: 'Iced Coffee' },
+  { id: 'ic5', name: 'Iced Matcha / أيس ماتشا', price: '$5.00', description: 'Refreshing cold matcha latte', category: 'Iced Coffee' },
+  { id: 'ic6', name: 'Iced Tiramisu / أيس تيراميسو', price: '$5.00', description: 'Iced coffee with a creamy tiramisu topping', category: 'Iced Coffee' },
+]
+
+,
+
  saj: [
   { id:'s1', ar:'صاج جبنة', en:'Cheese Saj', img:'photos/صاج جبنة.jpg', price:'$2.00' },
   { id:'s2', ar:'صاج زعتر', en:'Za’atar Saj', img:'photos/صاج zaatar.jpg', price:'$1.00' },
@@ -102,7 +139,8 @@ cocktail: [
   { ar: 'ريماس تمر', en: 'Rimas Date Bar', img: 'photos/rimas date.jpg', price: '$0.50' },
   { ar: 'ماستر ص', en: 'Master Small', img: 'photos/master.jpg', price: '$0.50' },
   { ar: 'ماستر ك', en: 'Master Large', img: 'photos/master.jpg', price: '$1.00' }
-]
+],
+
 
 
 };

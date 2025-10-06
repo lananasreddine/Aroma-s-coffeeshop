@@ -1,4 +1,3 @@
-// render.js
 import { MENU } from './menu.js';
 
 const menuGrid = document.getElementById('menuGrid');
@@ -10,10 +9,36 @@ const searchBtn = document.getElementById('searchBtn'); // optional mobile butto
 let activeTab = null;
 
 // Price template
-const priceTemplate = (val = '') => {
-  const text = val || '—';
-  return `<span class="price-pill">${text}</span>`;
-};
+const priceTemplate = (val = '') => `<span class="price-pill">${val || '—'}</span>`;
+
+// Create menu card
+function createMenuCard(item, isCold = false) {
+  const card = document.createElement('div');
+  card.className = `
+    menu-item-card p-3 sm:p-4 border border-[color:rgba(107,79,58,0.12)]
+    rounded-2xl flex flex-col gap-3
+  `;
+
+  // Cold drinks slightly larger
+  const imgHeightClass = isCold ? 'h-56 sm:h-64' : 'h-48 sm:h-56';
+
+  const imgHTML = item.img
+    ? `<div class="img-container rounded-xl overflow-hidden ${imgHeightClass}">
+         <img class="img-cover w-full h-full object-cover" src="${item.img}" alt="${item.ar || item.en}" 
+              onerror="this.src='https://via.placeholder.com/300x300?text=No+Image';">
+       </div>`
+    : `<div class="img-container rounded-xl bg-white flex items-center justify-center text-sm text-[color:rgba(81,60,45,0.6)] ${imgHeightClass}">No Image</div>`;
+
+  card.innerHTML = `
+    ${imgHTML}
+    <div class="item-name font-semibold text-lg">${item.ar || item.name}</div>
+    ${item.en ? `<div class="text-sm text-[color:rgba(81,60,45,0.7)] text-center">${item.en}</div>` : ''}
+    ${item.description ? `<div class="text-[color:rgba(81,60,45,0.6)] text-sm break-words">${item.description}</div>` : ''}
+    ${priceTemplate(item.price)}
+  `;
+
+  menuGrid.appendChild(card);
+}
 
 // Render menu items
 export function renderMenu() {
@@ -21,16 +46,13 @@ export function renderMenu() {
   const query = (searchInput?.value || '').trim().toLowerCase();
   let items = [];
 
-  // Filter items based on search or active tab
+  // Determine items based on search or active tab
   if (query) {
     const allItems = Object.values(MENU).flat();
-    items = allItems.filter(it => {
-      const ar = (it.ar || '').toLowerCase();
-      const en = (it.en || '').toLowerCase();
-      const matches = ar.includes(query) || en.includes(query);
-      if (activeTab) return matches && (MENU[activeTab] || []).includes(it);
-      return matches;
-    });
+    items = allItems.filter(it =>
+      (it.en || it.name || '').toLowerCase().includes(query) ||
+      (it.ar || '').toLowerCase().includes(query)
+    );
   } else if (activeTab) {
     items = MENU[activeTab] || [];
   } else return;
@@ -44,39 +66,29 @@ export function renderMenu() {
     return;
   }
 
-  // Create cards for each item
-  items.forEach((item, index) => {
-    const card = document.createElement('div');
-    card.className = 'menu-item-card p-3 sm:p-4 border border-[color:rgba(107,79,58,0.12)] rounded-2xl flex flex-col gap-2';
+  // Cold drinks grouped by category
+  if (activeTab === 'cold') {
+    const categories = [...new Set(items.map(i => i.category))];
+    categories.forEach(cat => {
+      const title = document.createElement('div');
+      title.className = 'text-2xl sm:text-3xl font-bold my-4 col-span-full';
+      title.textContent = cat;
+      menuGrid.appendChild(title);
 
-    const imgHTML = item.img 
-      ? `<div class="img-container rounded-xl overflow-hidden">
-           <img class="img-cover" src="${item.img}" alt="${item.ar} - ${item.en || ''}" 
-                onerror="this.src='https://via.placeholder.com/112x112?text=No+Image'; this.alt='Image failed to load';">
-         </div>` 
-      : `<div class="img-container rounded-xl bg-white flex items-center justify-center text-sm text-[color:rgba(81,60,45,0.6)]">No Image</div>`;
-
-    card.innerHTML = `
-      ${imgHTML}
-      <div class="item-name">${item.ar}</div>
-      ${item.en ? `<div class="text-sm text-[color:rgba(81,60,45,0.7)] text-center">${item.en}</div>` : ''}
-      ${priceTemplate(item.price)}
-    `;
-
-    menuGrid.appendChild(card);
-
-    // Scroll the first item in every render
-    if (index === 0) {
-      card.scrollIntoView({
-        behavior: 'smooth', // smooth scrolling
-        block: 'start',     // align to top of container
-        inline: 'nearest'
-      });
-    }
-  });
+      const catItems = items.filter(i => i.category === cat);
+      catItems.forEach(item => createMenuCard(item, true)); // all cold drinks slightly bigger
+    });
+  } else {
+    items.forEach(item => createMenuCard(item, false));
+  }
 
   // Show/hide clear button
   if (clearSearchBtn) clearSearchBtn.classList.toggle('hidden', !query);
+
+  // Scroll first card into view for search or tab click
+  if (menuGrid.firstChild) {
+    menuGrid.firstChild.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 // Render tabs
@@ -102,20 +114,14 @@ export function initTabs() {
   // Search: Enter/Go key
   if (searchInput) {
     searchInput.addEventListener('keypress', (e) => {
-      if (e.key === 'Enter' || e.key === 'Go') {
-        renderMenu();
-      }
+      if (e.key === 'Enter' || e.key === 'Go') renderMenu();
     });
   }
 
-  // Optional mobile search button
-  if (searchBtn) {
-    searchBtn.addEventListener('click', () => {
-      renderMenu();
-    });
-  }
+  // Mobile search button
+  if (searchBtn) searchBtn.addEventListener('click', renderMenu);
 
-  // Clear button
+  // Clear search button
   if (clearSearchBtn) {
     clearSearchBtn.addEventListener('click', () => {
       searchInput.value = '';
@@ -124,7 +130,7 @@ export function initTabs() {
   }
 }
 
-// Optional slider (for your quotes or hero section)
+// Optional slider (hero or quotes)
 const track = document.getElementById('sliderTrack');
 if (track) {
   const slides = track.children;
@@ -134,4 +140,3 @@ if (track) {
     track.style.transform = `translateX(-${index * 100}%)`;
   }, 4000);
 }
-
